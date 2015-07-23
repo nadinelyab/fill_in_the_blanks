@@ -1,3 +1,23 @@
-<!-- Fill in code here to create a form that can be used for either creating or editing a post (see Rails Guides Getting Started section 5.12 if you need help) -->
+<% if @post.errors.present? %>
+	<% @post.errors.full_messages.each do |msg| %>
+		<p><%= msg %></p>
+	<% end %>
+<% end%>
 
-<!-- BONUS! Add some error handling -->
+<%= form_for @post do |f| %>
+<p>
+	<%= f.label :bru_name %><br>
+	<%= f.text_field :bru_name %>
+</p>
+<p>
+	<%= f.label :title %><br>
+	<%= f.text_field :title %>
+</p>
+<p>
+	<%= f.label :body %><br>
+	<%= f.text_field :body %>
+</p>
+<p>
+	<%= f.submit %>
+</p>
+<% end %>
